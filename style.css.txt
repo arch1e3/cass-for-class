@@ -1,0 +1,41 @@
+/* style.css */
+body {
+  font-family: sans-serif;
+  background: #f8f8f8;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+header, footer {
+  padding: 1rem;
+  background: #eee;
+}
+
+main {
+  padding: 2rem;
+}
+
+button {
+  margin: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  background: #333;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #555;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+.leaderboard-entry {
+  margin: 0.25rem 0;
+}

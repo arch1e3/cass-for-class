@@ -1,0 +1,33 @@
+// script.js
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Keybind to open ChatGPT (Shift + A)
+  document.addEventListener('keydown', (e) => {
+    if (e.shiftKey && e.key.toLowerCase() === 'a') {
+      window.open('https://chat.openai.com', '_blank');
+    }
+  });
+});
+
+// Leaderboard logic
+function addToLeaderboard(game, name, score) {
+  const key = `${game}-leaderboard`;
+  const data = JSON.parse(localStorage.getItem(key)) || [];
+  data.push({ name, score });
+  data.sort((a, b) => b.score - a.score);
+  localStorage.setItem(key, JSON.stringify(data.slice(0, 10)));
+}
+
+function renderLeaderboard(game, containerId) {
+  const key = `${game}-leaderboard`;
+  const data = JSON.parse(localStorage.getItem(key)) || [];
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  container.innerHTML = '';
+  data.forEach(entry => {
+    const div = document.createElement('div');
+    div.className = 'leaderboard-entry';
+    div.textContent = `${entry.name}: ${entry.score}`;
+    container.appendChild(div);
+  });
+}
